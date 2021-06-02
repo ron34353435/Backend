@@ -23,8 +23,8 @@ app.post('/connect', (req, res) => {
     console.log("connect -> " + req.body.dbName)
     client = new Client({
         user: 'ron',
-        host: req.body.ip,
-        database: req.body.dbName,
+        host: 172.30.92.221,//req.body.ip,
+        database: 'demodb',//req.body.dbName,
         password: 'Bsmch@500K!',
         port: 5432
     });
