@@ -37,6 +37,7 @@ exports.getTablesNames = this.getTablesNames = async (client) => {
             return "ERROR"
         }
         else {
+            console.log("success");
             client.end()
             return res
         }
