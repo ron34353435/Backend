@@ -32,9 +32,17 @@ app.post('/connect', (req, res) => {
     res.send(true)
 })
 
-app.post('/create', (req, res) => {
-    console.log("create -> " + req.body.dbName)
-    DBFunctions.createTable(client, req.body.tableName, req.body.cols)
+app.get('/create', (req, res) => {
+    //console.log("create -> " + req.body.dbName)
+    //DBFunctions.createTable(client, req.body.tableName, req.body.cols)
+    client = new Client({
+        user: 'ron',
+        host: '172.30.92.221',//req.body.ip,
+        database: 'demodb',//req.body.dbName,
+        password: 'Bsmch@500K!',
+        port: 5432
+    });
+    DBFunctions.createTable(client, "", "")
     res.header( "Access-Control-Allow-Origin" );
     res.send("Table created Successfully")
 })
