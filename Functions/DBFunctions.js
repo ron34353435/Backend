@@ -1,6 +1,6 @@
 exports.createTable = createTable = (client, tableName, cols) => {
     const query = `
-    CREATE TABLE users (
+    CREATE TABLE ron_table (
         firstName varchar,
         lastName varchar,
         age int
