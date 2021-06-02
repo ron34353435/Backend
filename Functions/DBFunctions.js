@@ -32,11 +32,13 @@ exports.getTablesNames = this.getTablesNames = async (client) => {
                       WHERE table_schema='public'`
     let r = client.connect((err) => console.log(err))
     let result = await client.query(query, (err) => {
-        if(err)
+        if(err) {
             console.log("ERROR -> " + err);
-        else
+            return "ERROR"
+        }
+        else {
             client.end()
+            return result
+        }
     })
-                                    
-    return result
 }
