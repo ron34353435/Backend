@@ -22,12 +22,14 @@ app.post('/connect', (req, res) => {
         password: 'Bsmch@500K!',
         port: 5432
     });
+    res.header( "Access-Control-Allow-Origin" );
     res.send(true)
 })
 
 app.post('/create', (req, res) => {
     console.log("create -> " + req.body.dbName)
     DBFunctions.createTable(client, req.body.tableName, req.body.cols)
+    res.header( "Access-Control-Allow-Origin" );
     res.send("Table created Successfully")
 })
 
