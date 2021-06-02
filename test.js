@@ -40,6 +40,13 @@ app.post('/create', (req, res) => {
 })
 
 app.post('/tables', async (req, res) => {
+    client = new Client({
+        user: 'ron',
+        host: '172.30.92.221',//req.body.ip,
+        database: 'demodb',//req.body.dbName,
+        password: 'Bsmch@500K!',
+        port: 5432
+    });
     let result = await DBFunctions.getTablesNames(client)
     res.send(result)
 })
