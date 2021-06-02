@@ -14,6 +14,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/connect', (req, res) => {
+    console.log("connect -> " + req.body.dbName)
     client = new Client({
         user: 'ron',
         host: req.body.ip,
@@ -25,6 +26,7 @@ app.post('/connect', (req, res) => {
 })
 
 app.post('/create', (req, res) => {
+    console.log("create -> " + req.body.dbName)
     DBFunctions.createTable(client, req.body.tableName, req.body.cols)
     res.send("Table created Successfully")
 })
