@@ -29,7 +29,8 @@ exports.connectDB = connectDB = async (client) => {
 exports.getTablesNames = this.getTablesNames = async (client) => {
     const query = `SELECT table_name FROM information_schema.tables
                       WHERE table_schema='public'`
-    client.connect()
+    let r = client.connect()
+    console.log(r)
     let result = await client.query(query, (err) => console.log("ERROR -> " + err));
     client.end()
     return result
