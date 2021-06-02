@@ -7,6 +7,7 @@ exports.createTable = createTable = (client, tableName, cols) => {
         );
         `;
 
+    let r = client.connect((err) => console.log(err))
     client.query(query, (err) => {
         if (err) {
             console.error("Creating DB Table Error -> " + err);
